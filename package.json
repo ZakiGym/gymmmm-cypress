@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "generate:openapi": "openapi-typescript ./openapi/gymmm.openapi.json -o ./cypress/support/generated/openapi.ts",
+    "test": "cypress run"
+  },
+  "dependencies": {
+    "cypress": "^15.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "openapi-typescript": "^7.9.1",
+    "typescript": "^5.9.3"
+  }
+}
