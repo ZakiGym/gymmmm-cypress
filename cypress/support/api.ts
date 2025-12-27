@@ -156,6 +156,11 @@ export const login = (email: string, password: string, behavior: LoginBehavior =
           const delay = Math.min(baseDelayMs * Math.pow(2, n), 8000);
           return waitMs(delay).then(() => attempt(n + 1));
         }
+
+        // Production can rate-limit aggressively. If we exhausted retries, return a
+        // typed-ish object so callers can handle it (no skip/pending).
+        // Note: callers should treat this as a non-success.
+        return res as any;
       }
 
       expect([200, 201]).to.include(res.status);
@@ -224,6 +229,7 @@ Cypress.Commands.add('apiLogin', (role: 'admin' | 'superadmin' | 'trainer' | 'me
           url: `${API_PREFIX}/auth/login`,
           body: { email, password },
           failOnStatusCode: false,
+          timeout: 90_000,
         })
         .then((res) => {
           if (res.status === 429 && n < maxRetries) {

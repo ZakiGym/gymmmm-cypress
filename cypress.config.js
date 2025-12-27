@@ -17,5 +17,8 @@ export default defineConfig({
     GYM_ID: '690dd58eb250ac19d4a39ff4',
     PRICE_ID: 'price_abc123',
     // ADMIN_EMAIL, ADMIN_PASSWORD, SUPER_EMAIL, SUPER_PASSWORD, MEMBER_ID
+
+    // UI base URL (override in CI/local with: CYPRESS_UI_BASE_URL=https://www.gymmm.app)
+    UI_BASE_URL: process.env.CYPRESS_UI_BASE_URL || 'https://www.gymmm.app',
   },
 });

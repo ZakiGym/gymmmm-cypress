@@ -1,0 +1,71 @@
+{
+  "before": {
+    "localStorageKeys": [],
+    "sessionStorageKeys": [],
+    "cookies": []
+  },
+  "after": {
+    "localStorageKeys": [
+      "accessToken",
+      "token",
+      "theme",
+      "jwt",
+      "vite-ui-theme"
+    ],
+    "sessionStorageKeys": [
+      "accessToken",
+      "token",
+      "jwt"
+    ],
+    "localStorageAuthish": [
+      "accessToken",
+      "jwt",
+      "token"
+    ],
+    "sessionStorageAuthish": [
+      "accessToken",
+      "jwt",
+      "token"
+    ],
+    "addedLocalStorageKeys": [
+      "accessToken",
+      "token",
+      "theme",
+      "jwt",
+      "vite-ui-theme"
+    ],
+    "addedSessionStorageKeys": [
+      "accessToken",
+      "token",
+      "jwt"
+    ],
+    "localStoragePreviews": [
+      {
+        "key": "accessToken",
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+      },
+      {
+        "key": "jwt",
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+      },
+      {
+        "key": "token",
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+      }
+    ],
+    "sessionStoragePreviews": [
+      {
+        "key": "accessToken",
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+      },
+      {
+        "key": "jwt",
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+      },
+      {
+        "key": "token",
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+      }
+    ]
+  }
+}

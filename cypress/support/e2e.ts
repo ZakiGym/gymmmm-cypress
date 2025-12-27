@@ -1,5 +1,6 @@
 // cypress/support/e2e.ts
 import './api';
+import './ui';
 
 import { waitForBackendReady } from './api';
 
