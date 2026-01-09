@@ -53,6 +53,14 @@ export const authRequest = (
   const headers: Record<string, string> = {};
   if (token) headers.Authorization = `Bearer ${token}`;
 
+  // Runtime endpoint capture for Node-side cy.request() usage.
+  // `url` here is typically already relative to API_PREFIX (e.g. '/auth/me').
+  cy.task(
+    'runtime:record',
+    { method, pathname: `${API_PREFIX}${url}` },
+    { log: false },
+  );
+
   return cy.request({
     method,
     url: `${API_PREFIX}${url}`,
@@ -113,7 +121,8 @@ export const waitForBackendReady = (options?: {
         method: 'GET',
         url,
         failOnStatusCode: false,
-        timeout: Math.min(30_000, timeoutMs),
+        // Render cold starts or intermittent stalls can exceed 30s.
+        timeout: Math.min(90_000, Math.max(30_000, timeoutMs)),
       })
       .then((res) => {
         if (readyStatuses.includes(res.status)) return;
@@ -223,6 +232,11 @@ Cypress.Commands.add('apiLogin', (role: 'admin' | 'superadmin' | 'trainer' | 'me
 
   const attempt = (n: number): Cypress.Chainable<{ token: string; userId: string }> => {
     return cy.then(() => {
+      cy.task(
+        'runtime:record',
+        { method: 'POST', pathname: `${API_PREFIX}/auth/login` },
+        { log: false },
+      );
       return cy
         .request({
           method: 'POST',

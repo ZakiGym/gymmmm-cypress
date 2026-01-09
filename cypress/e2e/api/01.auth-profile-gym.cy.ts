@@ -2,8 +2,8 @@
 
 import { API_PREFIX } from '../../support/api';
 
-describe('Auth/Profile/Gym (production-safe)', () => {
-  it('admin can login and fetch /auth/me', () => {
+describe('API - Auth/Profile/Gym - Production-safe flow', () => {
+  it('Admin - Auth - login and fetch /auth/me', () => {
     cy.apiLogin('admin').then(({ token }) => {
       cy.request({
         method: 'GET',

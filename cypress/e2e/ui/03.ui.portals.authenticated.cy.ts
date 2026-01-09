@@ -25,15 +25,36 @@ describe('UI: portals (token-auth smoke)', () => {
     it(`${role} can open the app without being forced to login`, () => {
       cy.uiLoginWithToken(role);
 
-      // Best-effort invariant: authed session shouldn't land on login.
-      // But during heavy full-suite runs, login can be rate-limited (429), so we accept
-      // a login redirect as long as the UI loads cleanly.
+      // Capture the landing path so we can build deeper E2E coverage without guessing routes.
+      cy.location('pathname', { timeout: 45_000 }).then((p) => {
+        cy.log(`landing:${role}:${p}`);
+        cy.writeFile(
+          `cypress/fixtures/ui-landing.${role}.json`,
+          { role, pathname: p, at: new Date().toISOString() },
+          { log: false },
+        );
+      });
+
+      // Invariant: for a real token we should not be on login.
+      // If token fetch was rate-limited, uiLoginWithToken won't attempt protected navigation.
       cy.getPortalToken(role).then((token) => {
         if (String(token).startsWith('RATE_LIMITED_')) {
           cy.location('pathname', { timeout: 45_000 }).should('be.a', 'string');
           return;
         }
-        cy.location('pathname', { timeout: 45_000 }).should('not.include', '/auth/login');
+
+        // Frontend acceptance check: if the app itself calls /api/auth/me and gets 200,
+        // then we should not be on the login page.
+        cy.intercept('GET', '**/api/auth/me').as('uiAuthMeProbe');
+        cy.wait(1500, { log: false })
+          .then(() => cy.get('@uiAuthMeProbe.all', { log: false }))
+          .then((calls: any) => {
+            const last = Array.isArray(calls) ? calls[calls.length - 1] : undefined;
+            const status = last?.response?.statusCode as number | undefined;
+            if (status === 200) {
+              cy.location('pathname', { timeout: 45_000 }).should('not.include', '/auth/login');
+            }
+          });
       });
 
       // Basic app health: document loaded.

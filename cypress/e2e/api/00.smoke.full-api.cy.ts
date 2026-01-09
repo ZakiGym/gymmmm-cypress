@@ -3,7 +3,7 @@
 // The following tests are part of the original file and are now disabled.
 
 /*
-describe('Gymmm API – end-to-end API smoke with contracts', () => {
+describe('API - Smoke - Full contract smoke', () => {
   // Original tests go here...
 });
 */
@@ -52,7 +52,7 @@ describe('Gymmm API – end-to-end API smoke with contracts', () => {
    * TEST 1
    * Auth + Profile + Gym + Locations + Health
    */
-  it('Admin bootstrap: profile, gym, locations, health', () => {
+  it('Admin - Bootstrap - profile + gym + locations + health', () => {
     // current profile
     authRequest(adminToken, 'GET', '/user/profile', undefined, false).then((res) => {
       expect([200, 401, 403, 404, 429, 500, 502, 503]).to.include(res.status);
@@ -178,7 +178,7 @@ describe('Gymmm API – end-to-end API smoke with contracts', () => {
    * TEST 2
    * Class types + Classes + Bookings + Attendance
    */
-  it('Admin can manage class types, classes, bookings, attendance', () => {
+  it('Admin - Classes/Bookings - manage class types + classes + bookings + attendance', () => {
     let classTypeId: string;
     let classId: string;
     let bookingId: string;
@@ -355,7 +355,7 @@ describe('Gymmm API – end-to-end API smoke with contracts', () => {
    * TEST 3
    * Plans + Memberships + Payments + Coupons + Reports + Analytics
    */
-  it('Admin can manage plans, memberships, payments, coupons, reports', () => {
+  it('Admin - Billing - manage plans + memberships + payments + coupons + reports', () => {
     let planId: string;
     let membershipId: string;
     let couponId: string;
@@ -505,7 +505,7 @@ describe('Gymmm API – end-to-end API smoke with contracts', () => {
    * TEST 4
    * CRM + Notifications + QR + Public
    */
-  it('Admin can manage CRM, notifications, QR passes, and public endpoints', () => {
+  it('Admin - CRM/Comms/QR - manage CRM + notifications + QR + public endpoints', () => {
     let contactId: string;
     let qrToken: string | undefined;
 
@@ -656,7 +656,7 @@ describe('Gymmm API – end-to-end API smoke with contracts', () => {
    * TEST 5
    * Superadmin + Audit + Webhooks
    */
-  it('Superadmin observability: gyms, feature flags, audit, webhooks', () => {
+  it('Superadmin - Observability - gyms + feature flags + audit + webhooks', () => {
     // list gyms
     authRequest(superToken, 'GET', '/superadmin/gyms', undefined, false)
       .then((res) => {

@@ -1,7 +1,7 @@
-import { getUiBaseUrl } from '../../support/ui';
+import { getUiBaseUrl } from '../../../support/ui';
 
-describe('UI: member portal (token-auth)', () => {
-  it('boots successfully and loads member-facing API data', () => {
+describe('Member - Portal - boot with token auth', () => {
+  it('Member - Portal - boot and validate auth/me (best-effort)', () => {
     const uiBase = getUiBaseUrl();
     cy.uiLoginWithToken('member');
 
@@ -30,8 +30,8 @@ describe('UI: member portal (token-auth)', () => {
     });
 
     cy.window().then((win) => {
-      expect(win.localStorage.getItem('token') || win.localStorage.getItem('accessToken')).to
-        .be.a('string');
+      expect(win.localStorage.getItem('token') || win.localStorage.getItem('accessToken')).to.be
+        .a('string');
     });
   });
 });

@@ -1,6 +1,7 @@
 {
   "scripts": {
     "generate:openapi": "openapi-typescript ./openapi/gymmm.openapi.json -o ./cypress/support/generated/openapi.ts",
+    "report:runtime-coverage": "node scripts/openapi-runtime-coverage.mjs",
     "test": "cypress run"
   },
   "dependencies": {

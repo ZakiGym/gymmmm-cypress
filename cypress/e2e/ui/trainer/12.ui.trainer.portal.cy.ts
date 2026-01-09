@@ -1,7 +1,7 @@
-import { getUiBaseUrl } from '../../support/ui';
+import { getUiBaseUrl } from '../../../support/ui';
 
-describe('UI: trainer portal (token-auth)', () => {
-  it('boots successfully and loads trainer-facing API data', () => {
+describe('Trainer - Portal - boot with token auth', () => {
+  it('Trainer - Portal - boot and validate auth/me (best-effort)', () => {
     const uiBase = getUiBaseUrl();
     cy.uiLoginWithToken('trainer');
 
@@ -31,8 +31,8 @@ describe('UI: trainer portal (token-auth)', () => {
     });
 
     cy.window().then((win) => {
-      expect(win.localStorage.getItem('token') || win.localStorage.getItem('accessToken')).to
-        .be.a('string');
+      expect(win.localStorage.getItem('token') || win.localStorage.getItem('accessToken')).to.be
+        .a('string');
     });
   });
 });

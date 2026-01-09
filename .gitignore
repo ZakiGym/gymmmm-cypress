@@ -1,3 +1,19 @@
+node_modules/
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# Local runtime artifacts & reports
+reports/
+
+# Local UI auth capture / debug fixtures (may include tokens)
+cypress/fixtures/ui-auth*.json
+cypress/fixtures/ui-data-cy.*.json
+cypress/fixtures/ui-landing.*.json
+
+# Cypress misc
+.DS_Store
 # dependencies
 node_modules/
 

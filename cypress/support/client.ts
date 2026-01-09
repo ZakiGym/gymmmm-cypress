@@ -64,6 +64,16 @@ export const apiRequest = <
   const headers: Record<string, string> = {};
   if (options.token) headers.Authorization = `Bearer ${options.token}`;
 
+  // Runtime endpoint capture
+  // Many API specs use cy.request() (Node-side), which bypasses browser-level
+  // intercept/fetch/XHR instrumentation. Recording here ensures coverage metrics
+  // reflect real API usage.
+  cy.task(
+    'runtime:record',
+    { method, pathname: `${API_PREFIX}${path as string}` },
+    { log: false },
+  );
+
   return cy.request({
     method,
     url: `${API_PREFIX}${path as string}`,

@@ -3,7 +3,7 @@
 // cypress/e2e/02.locations-classes-bookings.cy.ts
 import { authRequest, getEnv, login } from '../../support/api';
 
-describe('Locations, Class Types, Classes & Bookings', () => {
+describe('API - Admin - Locations/Classes/Bookings', () => {
   let adminToken: string;
   let adminUserId: string;
 
@@ -18,7 +18,7 @@ describe('Locations, Class Types, Classes & Bookings', () => {
     );
   });
 
-  it('full happy path: location + class type + class + booking + attendance', () => {
+  it('Admin - Locations/Classes/Bookings - happy path create->book->attendance (cleanup)', () => {
     const memberId = getEnv('MEMBER_ID');
 
     let locationId: string;
@@ -154,7 +154,7 @@ describe('Locations, Class Types, Classes & Bookings', () => {
       });
   });
 
-  it('rejects unauthenticated access to locations', () => {
+  it('Public - RBAC - unauthenticated access to locations is rejected', () => {
     authRequest(undefined, 'GET', '/locations', undefined, false).then(
       (res) => {
         expect(res.status).to.eq(401);
