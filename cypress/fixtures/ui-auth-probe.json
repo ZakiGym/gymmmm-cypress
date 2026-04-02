@@ -42,29 +42,29 @@
     "localStoragePreviews": [
       {
         "key": "accessToken",
-        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbiB…"
       },
       {
         "key": "jwt",
-        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbiB…"
       },
       {
         "key": "token",
-        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbiB…"
       }
     ],
     "sessionStoragePreviews": [
       {
         "key": "accessToken",
-        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbiB…"
       },
       {
         "key": "jwt",
-        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbiB…"
       },
       {
         "key": "token",
-        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsImd5bSI6IjY5MGRkNTh…"
+        "preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGU1YWEyYzUyZjY1YTk1OWZmYWVjMyIsInJvbGUiOiJhZG1pbiIsIm5hbWUiOiJBZG1pbiB…"
       }
     ]
   }
