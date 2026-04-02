@@ -166,8 +166,9 @@ describe('UI: member portal flows (54)', () => {
   it('member browse-classes page loads with view toggle', () => {
     cy.intercept('GET', '**/api/classes**').as('classesList');
 
-    cy.visit(`${base}/browse-classes`, { failOnStatusCode: false });
-    ensureAuthed(`${base}/browse-classes`);
+    // BrowseClasses is the INDEX route of /portal/:gymId/member — no /browse-classes sub-path
+    cy.visit(base, { failOnStatusCode: false });
+    ensureAuthed(base);
     assertMemberShell();
 
     // Verify the browse-classes page container (with fallback).
@@ -250,8 +251,8 @@ describe('UI: member portal flows (54)', () => {
     cy.visit(`${base}/payments`, { failOnStatusCode: false });
     assertPageLoaded('[data-cy="member-payments-page"]', /payment|transaction|invoice/i);
 
-    // Step 4: Navigate to browse-classes.
-    cy.visit(`${base}/browse-classes`, { failOnStatusCode: false });
+    // Step 4: Navigate to browse-classes (index route — no sub-path).
+    cy.visit(base, { failOnStatusCode: false });
     assertPageLoaded('[data-cy="member-browse-classes-page"]', /class|browse|schedule|session/i);
 
     // Final auth check — all pages should have remained within the authenticated portal.

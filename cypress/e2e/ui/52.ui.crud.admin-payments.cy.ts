@@ -49,7 +49,8 @@ describe('UI: admin payments (52)', () => {
   // ── tests ──────────────────────────────────────────────────────────────────
 
   it('payments page loads with correct heading and table', () => {
-    cy.intercept('GET', '**/api/payments**').as('fetchPayments');
+    // AdminPayments.list() calls GET /api/payments/admin
+    cy.intercept('GET', '**/api/payments/admin**').as('fetchPayments');
 
     cy.visit(`${base}/payments`, { failOnStatusCode: false });
     ensureAuthed(`${base}/payments`);
@@ -181,7 +182,8 @@ describe('UI: admin payments (52)', () => {
   });
 
   it('clicking a payment row navigates to payment detail with amount, date, status', () => {
-    cy.intercept('GET', '**/api/payments**').as('paymentsList');
+    // AdminPayments.list() calls GET /api/payments/admin
+    cy.intercept('GET', '**/api/payments/admin**').as('paymentsList');
     cy.intercept('GET', '**/api/payments/**').as('paymentDetail');
 
     cy.visit(`${base}/payments`, { failOnStatusCode: false });
@@ -266,6 +268,7 @@ describe('UI: admin payments (52)', () => {
     cy.wait(2500, { log: false });
 
     cy.then(() => {
+      // AdminPayments.list() calls /api/payments/admin — match either path
       const hit = observed.find((x) => /\/api\/payments/.test(x.url));
       if (hit) {
         expect([200, 204, 304, 404], 'payments API status').to.include(hit.status);
